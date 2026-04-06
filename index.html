@@ -6,58 +6,97 @@
 <title>Your Key</title>
 
 <style>
+  /* ===== Body & Centering ===== */
   body {
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0a0a0a;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    font-family: 'Arial', sans-serif;
     color: #fff;
   }
 
+  /* ===== Card Container ===== */
   .card {
     background: #111;
-    padding: 30px;
-    border-radius: 10px;
-    width: 300px;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 320px;
     text-align: center;
     border: 1px solid #333;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
   }
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #e8c96a;
+    font-size: 24px;
+    letter-spacing: 1px;
   }
 
+  /* ===== Input Box with Shine ===== */
   input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: #0d0d0d;
     border: 1px solid #333;
     color: #e8c96a;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
   }
 
+  /* Shine effect */
+  input::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: all 0.5s;
+  }
+
+  input:hover::after {
+    left: 125%;
+    transition: all 0.8s;
+  }
+
+  /* ===== Button Styling ===== */
   button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: #e8c96a;
     border: none;
     color: #000;
     cursor: pointer;
     font-weight: bold;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: transform 0.2s, opacity 0.2s;
   }
 
   button:hover {
     opacity: 0.9;
+    transform: scale(1.02);
   }
 
+  /* ===== Status Text ===== */
   .status {
-    margin-top: 10px;
-    font-size: 12px;
+    margin-top: 12px;
+    font-size: 13px;
     color: #e8c96a;
     display: none;
   }
