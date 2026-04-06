@@ -68,7 +68,7 @@
 <div class="card">
   <h2>Your Key</h2>
 
-  <input id="keyBox" value="y1JHG-5T9U-QW2E-AS84-PL37-NM65" readonly>
+  <input id="keyBox" value="Loading..." readonly>
 
   <button onclick="copyKey()">Copy</button>
 
@@ -76,6 +76,16 @@
 </div>
 
 <script>
+// 🔥 AUTO AMBIL KEY DARI key.txt
+fetch("/key.txt")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("keyBox").value = data.trim();
+  })
+  .catch(() => {
+    document.getElementById("keyBox").value = "ERROR LOAD KEY";
+  });
+
 function copyKey() {
   const box = document.getElementById("keyBox");
   const status = document.getElementById("status");
